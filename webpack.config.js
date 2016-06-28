@@ -13,7 +13,11 @@ var commonConfig = {
       { test: /\.html$/, loader: 'raw-loader' },
       // { test: /\.css$/, loader: 'raw-loader' },
       { test: /\.json$/, loader: 'raw-loader' },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")}
+      // { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")}
+      // { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}
+      {test: /\.scss$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+}
+
     ],
     preLoaders: [
       // needed to lower the filesize of angular due to inline source-maps
