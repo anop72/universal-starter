@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var commonConfig = {
   resolve: {
@@ -10,8 +11,9 @@ var commonConfig = {
       // TypeScript
       { test: /\.ts$/, loaders: ['ts-loader', 'angular2-template-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.css$/, loader: 'raw-loader' },
-      { test: /\.json$/, loader: 'raw-loader' }
+      // { test: /\.css$/, loader: 'raw-loader' },
+      { test: /\.json$/, loader: 'raw-loader' },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")}
     ],
     preLoaders: [
       // needed to lower the filesize of angular due to inline source-maps
@@ -23,7 +25,8 @@ var commonConfig = {
     ],
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(true)
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new ExtractTextPlugin("bundle.css")
   ]
 
 };
