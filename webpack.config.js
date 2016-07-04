@@ -14,9 +14,7 @@ var commonConfig = {
       // { test: /\.css$/, loader: 'raw-loader' },
       { test: /\.json$/, loader: 'raw-loader' },
       // { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")}
-      // { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}
-      {test: /\.scss$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-}
+      {test: /\.scss$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}
 
     ],
     preLoaders: [
