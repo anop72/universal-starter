@@ -4,7 +4,7 @@ import {
   it
 } from '@angular/core/testing';
 
-describe('simple test', () => {
+describe('Simple test', () => {
 
   it('always true', () => {
     expect(1 === 1);

@@ -7,7 +7,7 @@ import {
 } from '@angular/core/testing';
 
 import { provide } from '@angular/core';
-import { Service } from './app.service';
+import { Service } from '../src/app/app.service';
 
 describe('Service:', () => {
 
