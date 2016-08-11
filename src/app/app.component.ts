@@ -2,6 +2,9 @@ import { Component, Directive, ElementRef, Renderer } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Http } from '@angular/http';
 
+import { SeoService } from './seo.service';
+import { Model } from './seo.model';
+
 // templateUrl example
 import { Home } from './home';
 //
@@ -30,7 +33,13 @@ export class XLarge {
     <div>This is the "About" page</div>
   `
 })
-export class About { }
+export class About {
+  constructor(private _seo: SeoService) {
+    let model = new Model();
+    model.title = "About page";
+    _seo.set(model);
+  }
+}
 
 /////////////////////////
 // ** MAIN APP COMPONENT **
