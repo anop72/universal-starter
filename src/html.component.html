@@ -2,8 +2,12 @@
   <title>Angular 2 Universal Starter</title>
   <meta charset="UTF-8">
   <meta name="description" content="Angular 2 Universal">
-  <meta name="keywords" content="Angular 2,Universal">
+  <!-- <meta name="keywords" content="Angular 2,Universal"> -->
+  <meta name="keywords" [content]="model.keywords">
   <meta name="author" content="PatrickJS">
+
+  <meta name="og:title" [content]="model.title">
+  <meta name="og:image" [content]="model.imageUrl">
 
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
