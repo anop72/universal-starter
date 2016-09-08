@@ -13,8 +13,9 @@
     "build": "webpack",
     "build:prod": "webpack --progress -p",
     "prestart": "npm run build",
-    "server": "webpack-dev-server --config ./webpack.config.js",
-    "start": "npm run server",
+    "server": "nodemon dist/server/index.js",
+    "client": "webpack-dev-server --config ./webpack.config.js --content-base ./src/",
+    "start": "npm run client",
     "predebug": "npm run build",
     "debug": "node --debug-brk dist/server/index.js",
     "test": "karma start"

@@ -29,7 +29,8 @@ var clientConfig = {
   target: 'web',
   entry: './src/client',
   output: {
-    path: root('dist/client')
+    path: root('src'),
+    filename: "index.js"
   },
   node: {
     global: true,
