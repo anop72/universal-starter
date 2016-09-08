@@ -41,22 +41,22 @@ var clientConfig = {
 };
 
 
-var serverConfig = {
-  target: 'node',
-  entry: './src/server', // use the entry file of the node server if everything is ts rather than es5
-  output: {
-    path: root('dist/server'),
-    libraryTarget: 'commonjs2'
-  },
-  externals: checkNodeImport,
-  node: {
-    global: true,
-    __dirname: true,
-    __filename: true,
-    process: true,
-    Buffer: true
-  }
-};
+// var serverConfig = {
+//   target: 'node',
+//   entry: './src/server', // use the entry file of the node server if everything is ts rather than es5
+//   output: {
+//     path: root('dist/server'),
+//     libraryTarget: 'commonjs2'
+//   },
+//   externals: checkNodeImport,
+//   node: {
+//     global: true,
+//     __dirname: true,
+//     __filename: true,
+//     process: true,
+//     Buffer: true
+//   }
+// };
 
 
 
@@ -80,7 +80,7 @@ module.exports = [
   webpackMerge({}, defaultConfig, commonConfig, clientConfig),
 
   // Server
-  webpackMerge({}, defaultConfig, commonConfig, serverConfig)
+  // webpackMerge({}, defaultConfig, commonConfig, serverConfig)
 ]
 
 // Helpers
