@@ -7,10 +7,17 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import {App} from './app/app.component';
 import {routes} from './app/app.routes';
 
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule }              from './app/app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+
 // you must return bootstrap for client.ts
 export function ngApp() {
-  return bootstrap(App, [
-    ...HTTP_PROVIDERS,
-    provideRouter(routes)
-  ]);
+  // return bootstrap(App, [
+  //   ...HTTP_PROVIDERS,
+  //   provideRouter(routes)
+  // ]);
+  return platformBrowserDynamic().bootstrapModule(AppModule);
+
 }
