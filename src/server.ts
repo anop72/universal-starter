@@ -16,32 +16,39 @@ enableProdMode();
 
 const app = express();
 const ROOT = path.join(path.resolve(__dirname, '..'));
+const router: express.Router = express.Router();
 
 // Express View
-app.engine('.html', expressEngine);
-app.set('views', __dirname);
-app.set('view engine', 'html');
+// app. ('.html', expressEngine);
+// app.set('views', __dirname);
+// app.set('view engine', 'html');
 
-app.use(cookieParser('Angular 2 Universal'));
-app.use(bodyParser.json());
+// app.use(cookieParser('Angular 2 Universal'));
+// app.use(bodyParser.json());
+
+router.get('/', (req, res) => {
+    res.sendFile('/index.html', {root: __dirname});
+});
 
 // Serve static files
+app.use(express.static(path.join(ROOT, 'src')));
 app.use('/assets', express.static(path.join(__dirname, 'assets'), {maxAge: 30}));
 app.use(express.static(path.join(ROOT, 'dist/client'), {index: false}));
 
+app.use('*', router);
 
-import { serverApi } from './backend/api';
-// Our API for demos only
-app.get('/data.json', serverApi);
-
-import { ngApp } from './main.node';
-// Routes with html5pushstate
-// ensure routes match client-side-app
-app.get('/', ngApp);
-app.get('/about', ngApp);
-app.get('/about/*', ngApp);
-app.get('/home', ngApp);
-app.get('/home/*', ngApp);
+// import { serverApi } from './backend/api';
+// // Our API for demos only
+// app.get('/data.json', serverApi);
+//
+// import { ngApp } from './main.node';
+// // Routes with html5pushstate
+// // ensure routes match client-side-app
+// app.get('/', ngApp);
+// app.get('/about', ngApp);
+// app.get('/about/*', ngApp);
+// app.get('/home', ngApp);
+// app.get('/home/*', ngApp);
 
 // use indexFile over ngApp only when there is too much load on the server
 function indexFile(req, res) {
@@ -50,12 +57,12 @@ function indexFile(req, res) {
   res.sendFile('/index.html', {root: __dirname});
 }
 
-app.get('*', function(req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  var pojo = { status: 404, message: 'No Content' };
-  var json = JSON.stringify(pojo, null, 2);
-  res.status(404).send(json);
-});
+// app.get('*', function(req, res) {
+//   res.setHeader('Content-Type', 'application/json');
+//   var pojo = { status: 404, message: 'No Content' };
+//   var json = JSON.stringify(pojo, null, 2);
+//   res.status(404).send(json);
+// });
 
 // Server
 app.listen(process.env.PORT || 3000, () => {
