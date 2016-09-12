@@ -1,16 +1,16 @@
 // Angular 2 Universal
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provideRouter } from '@angular/router';
-import { HTTP_PROVIDERS } from '@angular/http';
+// import { bootstrap } from '@angular/platform-browser-dynamic';
+// import { provideRouter } from '@angular/router';
+// import { HTTP_PROVIDERS } from '@angular/http';
 
 // Application
-import {App} from './app/app.component';
-import {routes} from './app/app.routes';
+// import {App} from './app/app.component';
+// import {routes} from './app/app.routes';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule }              from './app/app.module';
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+// platformBrowserDynamic().bootstrapModule(AppModule);
 
 // you must return bootstrap for client.ts
 export function ngApp() {

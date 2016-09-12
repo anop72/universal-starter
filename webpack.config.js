@@ -32,9 +32,14 @@ var commonConfig = {
 
 var clientConfig = {
   target: 'web',
-  entry: './src/client',
+  // entry: './src/client',
+  entry: {
+    'client': './src/client',
+    'client.aot': './src/client.aot',
+  },
   output: {
-    path: root('dist/client')
+    path: root('dist/client'),
+    filename: '[name].bundle.js'
   },
   node: {
     global: true,
