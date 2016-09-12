@@ -1,5 +1,5 @@
 import { Component, Directive, ElementRef, Renderer } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+// import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Http } from '@angular/http';
 
 // templateUrl example
@@ -36,10 +36,10 @@ export class About { }
 // ** MAIN APP COMPONENT **
 @Component({
   selector: 'app', // <app></app>
-  directives: [
-    ...ROUTER_DIRECTIVES,
-    XLarge
-  ],
+  // directives: [
+  //   ...ROUTER_DIRECTIVES,
+  //   XLarge
+  // ],
   styles: [`
     * { padding:0; margin:0; }
     #universal { text-align:center; font-weight:bold; padding:15px 0; }
